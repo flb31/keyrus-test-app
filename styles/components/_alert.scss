@@ -1,0 +1,23 @@
+@import '../settings/conf';
+
+.Alert {
+    border-radius: 10px;
+    width: 80%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:last-child {
+        margin-bottom: $triple--space;
+    }
+
+    &__success {
+        background: linear-gradient($gradient--success--1--color, $gradient--success--2--color);
+        border-color: $border--success--color;
+    }
+
+    &__danger {
+        background: linear-gradient($gradient--danger--1--color, $gradient--danger--2--color);
+        border-color: $border--danger--color;
+    } 
+}
