@@ -15,12 +15,16 @@ class Alert extends Component {
 
   render() {
     const { alert } = this.props;
-    
-    if(!this.state.showAlert) {
-        return null;
+
+    if (!this.state.showAlert) {
+      return null;
     }
 
-    return <BootstrapAlert bsStyle={alert.type} onDismiss={this.handleDismiss}>{alert.message}</BootstrapAlert>;
+    return (
+      <BootstrapAlert className={`Alert Alert__${alert.type}`} bsStyle={alert.type} onDismiss={this.handleDismiss}>
+        {alert.message}
+      </BootstrapAlert>
+    );
   }
 }
 
