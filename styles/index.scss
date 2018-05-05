@@ -1,3 +1,4 @@
-h1 {
-    color: #313131;
-}
+@import 'settings/conf';
+@import 'settings/mesaures';
+@import 'settings/spaces';
+@import 'settings/override';
