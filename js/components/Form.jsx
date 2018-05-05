@@ -24,6 +24,7 @@ class Form extends Component {
 
     if (!Validations.validatePassword(password.value)) {
       this.props.handleAlert({
+        id: uniqid(),
         type: 'danger',
         message: 'Password is not valid. Minimun 8 chars.'
       });
@@ -32,6 +33,7 @@ class Form extends Component {
 
     // success message
     this.props.handleAlert({
+      id: uniqid(),
       type: 'success',
       message: 'Success Login.'
     });

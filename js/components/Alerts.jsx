@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Alert from './Alert';
 import { removeAlert } from '../actions/actionCreators';
 
@@ -21,7 +22,9 @@ class Alerts extends Component {
 
     return (
       <div className="Alerts">
-        {this.renderAlerts(alerts)}
+        <ReactCSSTransitionGroup transitionName="Alert" transitionEnterTimeout={400} transitionLeaveTimeout={400}>
+          {this.renderAlerts(alerts)}
+        </ReactCSSTransitionGroup>
       </div>
     );
   }
@@ -38,7 +41,7 @@ const mapDispatchToProps = dispatch => ({
 Alerts.propTypes = {
   alerts: PropTypes.shape({
     type: PropTypes.string,
-    message: PropTypes.string,
+    message: PropTypes.string
   }).isRequired,
   handleAlert: PropTypes.func.isRequired
 };
