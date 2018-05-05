@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
-import uniqid from 'uniqid';
-import Alert, { typesAlert } from './Alert';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import Alert from './Alert';
+import { removeAlert } from '../actions/actionCreators';
 
 class Alerts extends Component {
   state = {};
 
-  renderAlerts = alerts => alerts.map(alert => <Alert key={uniqid()} alert={alert} />);
+  renderAlerts = alerts => {
+    const keysAlert = Object.keys(alerts);
+
+    return keysAlert.map(key => {
+      const alert = alerts[key];
+      return <Alert key={key} handleAlert={this.props.handleAlert} alert={alert} />;
+    });
+  };
 
   render() {
-    const alerts = [
-      {
-        type: typesAlert.success,
-        message: 'a message'
-      },
-      {
-        type: typesAlert.danger,
-        message: 'a message'
-      }
-    ];
+    const { alerts } = this.props;
 
     return (
       <div className="Alerts">
@@ -27,4 +27,20 @@ class Alerts extends Component {
   }
 }
 
-export default Alerts;
+const mapStateToProps = state => ({ alerts: state.alerts });
+
+const mapDispatchToProps = dispatch => ({
+  handleAlert(alertId) {
+    dispatch(removeAlert(alertId));
+  }
+});
+
+Alerts.propTypes = {
+  alerts: PropTypes.shape({
+    type: PropTypes.string,
+    message: PropTypes.string,
+  }).isRequired,
+  handleAlert: PropTypes.func.isRequired
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Alerts);

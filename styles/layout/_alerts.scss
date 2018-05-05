@@ -1,0 +1,8 @@
+@import '../settings/conf';
+
+.Alerts {
+    width: 100%;
+    position: absolute;
+    top: $space;
+    z-index: 999;
+}
