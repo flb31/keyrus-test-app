@@ -9,7 +9,7 @@ class Alert extends Component {
 
   componentDidMount() {
     // Dismiss automatically
-    setTimeout( () => {
+    setTimeout(() => {
       this.handleDismiss();
     }, 3000);
   }
