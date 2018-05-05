@@ -6,6 +6,7 @@
 @import 'components/footer';
 @import 'components/alert';
 @import 'layout/login';
+@import 'layout/alerts';
 @import 'settings/override';
 
 html,
@@ -14,10 +15,6 @@ body {
 }
 
 #app {
-    width: 100%;
-}
-
-.Alerts {
     width: 100%;
 }
 

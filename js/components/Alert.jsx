@@ -5,20 +5,21 @@ import PropTypes from 'prop-types';
 export const typesAlert = { success: 'success', warning: 'warning', danger: 'danger', info: 'info' };
 
 class Alert extends Component {
-  state = {
-    showAlert: true
-  };
+  state = {};
+
+  componentDidMount() {
+    // Dismiss automatically
+    setTimeout( () => {
+      this.handleDismiss();
+    }, 3000);
+  }
 
   handleDismiss = () => {
-    this.setState({ showAlert: false });
+    this.props.handleAlert(this.props.alert.id);
   };
 
   render() {
     const { alert } = this.props;
-
-    if (!this.state.showAlert) {
-      return null;
-    }
 
     return (
       <BootstrapAlert className={`Alert Alert__${alert.type}`} bsStyle={alert.type} onDismiss={this.handleDismiss}>
@@ -30,9 +31,11 @@ class Alert extends Component {
 
 Alert.propTypes = {
   alert: PropTypes.shape({
+    id: PropTypes.string,
     type: PropTypes.string,
     message: PropTypes.string
-  }).isRequired
+  }).isRequired,
+  handleAlert: PropTypes.func.isRequired
 };
 
 export default Alert;

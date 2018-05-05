@@ -1,38 +1,60 @@
 import React, { Component } from 'react';
 import { Button, FormGroup, FormControl, InputGroup, Glyphicon, Checkbox } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import uniqid from 'uniqid';
 import * as Validations from '../helpers/validations';
+import { sendAlert } from '../actions/actionCreators';
 
 class Form extends Component {
   state = {};
 
-  handleForm = (event) => {
+  handleForm = event => {
     event.preventDefault();
     const { email, password } = this.form;
 
     if (!Validations.validateEmail(email.value)) {
-      alert('error email');
+      this.props.handleAlert({
+        id: uniqid(),
+        type: 'danger',
+        message: 'Email is not valid.'
+      });
       return;
     }
 
     if (!Validations.validatePassword(password.value)) {
-      alert('error password');
+      this.props.handleAlert({
+        type: 'danger',
+        message: 'Password is not valid. Minimun 8 chars.'
+      });
       return;
     }
 
     // success message
-    alert('success login');
+    this.props.handleAlert({
+      type: 'success',
+      message: 'Success Login.'
+    });
   };
 
   render() {
     return (
-      <form onSubmit={this.handleForm} ref={ form => {this.form = form} } className="Form">
+      <form
+        onSubmit={this.handleForm}
+        ref={form => {
+          this.form = form;
+        }}
+        className="Form"
+      >
         <FormGroup className="m-b-none">
 
           <h4 className="Form__title m-b">Entra na minah conta</h4>
 
           <InputGroup className="m-quarter-b Form__group-input">
             <FormControl
-              ref={input => {this.email = input}}
+              ref={input => {
+                this.email = input;
+              }}
               className="Form__group-input__input"
               type="text"
               name="email"
@@ -45,7 +67,9 @@ class Form extends Component {
 
           <InputGroup className="Form__group-input">
             <FormControl
-              ref={input => {this.password = input}}
+              ref={input => {
+                this.password = input;
+              }}
               className="Form__group-input__input"
               type="password"
               name="password"
@@ -68,4 +92,16 @@ class Form extends Component {
   }
 }
 
-export default Form;
+Form.propTypes = {
+  handleAlert: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({ alerts: state.alerts });
+
+const mapDispatchToProps = dispatch => ({
+  handleAlert(alert) {
+    dispatch(sendAlert(alert));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
