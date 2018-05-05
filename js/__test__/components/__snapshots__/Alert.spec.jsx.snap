@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert renders correctly 1`] = `
+<Alert
+  bsClass="alert"
+  bsStyle="success"
+  className="Alert Alert__success"
+  closeLabel="Close alert"
+  onDismiss={[Function]}
+>
+  Message okay
+</Alert>
+`;
