@@ -22,10 +22,19 @@
         &__input {
             background-color: $input--bg--color;
             border-right: none;
+            border-color: $border-input-color;
+            font-size: 13px;
+            
+            &:focus {
+                border-color: none;
+                box-shadow: none;
+                border-color: $border-input-color;
+            } 
         }
 
         &__icon-input {
             background-color: $input--bg--color;
+            border-color: $border-input-color;
         }
 
         &__icon {
