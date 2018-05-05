@@ -19,5 +19,27 @@
     &__danger {
         background: linear-gradient($gradient--danger--1--color, $gradient--danger--2--color);
         border-color: $border--danger--color;
-    } 
+    }
+      
+    &-enter {
+        transform: translateX(100%);
+        opacity: 0;
+
+        &-active {
+            opacity: 1;
+            transform: translateX(0);
+            transition: all .4s ease;
+        }
+    }
+
+    &-leave {
+        transform: translateX(0);
+        opacity: 1;
+        
+        &-active {
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all .4s ease;
+        }
+    }
 }
