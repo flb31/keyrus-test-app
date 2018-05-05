@@ -1,0 +1,30 @@
+//--------
+//Setting space
+//--------
+$space: 20px !default;
+$double--space: $space * 2 !default;
+$triple--space: $space * 3 !default;
+$quad--space: $space * 4 !default;
+$half--space: $space / 2 !default;
+$quarter--space: $space / 4 !default;
+$none--space : 0;
+
+//--------
+// Breakpoints
+//--------
+$s--start: 750px!default;
+$md--start: 970px!default;
+$lg--start: 1170px!default;
+
+//--------
+// Colors
+//--------
+$title--color: #7b7b7b;
+$white: #FFF;
+$input--bg--color: #f7f5f6;
+$btn--primary--color: #3693dc;
+$link--color: #3693dc;
+$text--color: #888;
+$shadow--color: #AAA;
+$input--icon--color: #DDD;
+$border-input-color: rgba(#CCC, .4);

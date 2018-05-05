@@ -1,0 +1,66 @@
+@import '../settings/conf';
+
+.Form {
+    background: #FFF; // replace after
+    width: 380px;
+    padding: $double--space;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 1px 4px 1px $shadow--color;
+
+    &__title {
+        color: $title--color;
+        text-align: center;
+    }
+
+    &__group-input {
+        border-right-width: 0;
+        max-width: 215px;
+
+        &__input {
+            background-color: $input--bg--color;
+            border-right: none;
+            border-color: $border-input-color;
+            font-size: 13px;
+            
+            &:focus {
+                border-color: none;
+                box-shadow: none;
+                border-color: $border-input-color;
+            } 
+        }
+
+        &__icon-input {
+            background-color: $input--bg--color;
+            border-color: $border-input-color;
+        }
+
+        &__icon {
+            color: $input--icon--color;
+        }
+    }
+
+    &__check {
+        text-align: center;
+
+        input {
+            margin-top: 2px;
+        }
+
+        label {
+            color: $text--color;
+            font-size: 11px;
+        }
+    }
+
+    &__button {
+        display: block;
+        min-width: 110px;
+        margin: 0 auto;
+        background-color: $btn--primary--color;
+        box-shadow: 0 1px $shadow--color;
+        transition: ease .4s all;
+    }
+}
