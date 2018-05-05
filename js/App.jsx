@@ -4,7 +4,7 @@ import Form from './components/Form';
 import Footer from './components/Footer';
 
 const App = () => (
-  <div>
+  <div className="App">
     <Form />
 
     <div className="password m-t m-half-b">
@@ -17,7 +17,7 @@ const App = () => (
       <a href="/">Clique aqui.</a>
     </div>
 
-    <Footer />
+    <Footer theClasses="m-double-t" />
 
   </div>
 );
