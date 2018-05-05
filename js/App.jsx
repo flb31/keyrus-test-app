@@ -7,13 +7,13 @@ const App = () => (
   <div>
     <Form />
 
-    <div className="password">
+    <div className="password m-t m-half-b">
       <p>Precisa de uma conta?</p>
-      <a href="/">Increver-se</a>
+      <a href="/">&nbsp;Increver-se</a>
     </div>
 
     <div className="sign-up">
-      <p>Esqueceu sua senha?</p>
+      <p className="m-quarter-r">Esqueceu sua senha?</p>
       <a href="/">Clique aqui.</a>
     </div>
 

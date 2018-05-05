@@ -1,0 +1,23 @@
+@import '../settings/conf';
+
+.password,
+.sign-up {
+    text-align: center;
+
+    p {
+        display: inline;
+    }
+
+    a {
+        color: $link--color;
+    }
+}
+
+.password {
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.sign-up {
+    font-size: 11px;
+}
